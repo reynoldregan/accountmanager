@@ -1,8 +1,16 @@
+
+create database project;
+
+create user project_user with encrypted password 'project_user';
+
+grant all privileges on database  project to project_user; 
+
 -- Create schema acctmanager
 Create schema IF NOT EXISTS acctmanager;
 
 SET search_path TO acctmanager;
 
+SELECT gen_random_uuid();
 
 -- Banker Table
 CREATE TABLE banker (
@@ -70,7 +78,7 @@ CREATE TABLE loans(
    Open_date timestamp(6),
    Closing_date timestamp(6),
    Description varchar(300),
-   
+
    PRIMARY KEY(sysid, loan_number)
 );
 
